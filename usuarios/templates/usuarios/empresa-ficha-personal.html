@@ -1,0 +1,148 @@
+{% extends 'usuarios/empresa_base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+	<!-- Dashboard Sidebar / End -->
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Ficha Personal</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Ficha personal </li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-account-circle"></i> Mi cuenta</h3>
+						</div>
+						<div class="content with-padding padding-bottom-0">
+							<div class="row">
+							<form method="post">
+								{% csrf_token %}
+									<div class="col-auto">
+										<div class="avatar-wrapper" data-tippy-placement="bottom" title="Logo">
+											<img class="profile-pic" src="{% static "images/empleador-02.png" %}" alt="" />
+											<div class="upload-button"></div>
+											<input class="file-upload" type="file" accept="image/*"/>
+										</div>
+									</div>
+									<div class="col">
+										<div class="row">
+											<div class="col-xl-6">
+												<div class="submit-field">
+												<h5>Razón Social</h5>
+												{{ form.razon_social }}
+												</div>
+											</div>
+											<div class="col-xl-6">
+												<div class="submit-field">
+												<h5>Identificación (Rut o ID)</h5>
+												{{ form.rut_empresa }}
+												</div>
+											</div>
+											<div class="col-xl-8">
+											<div class="submit-field">
+												<h5>Dirección</h5>
+												{{ form.id_direccion }}
+											</div>
+											</div>
+											<div class="col-xl-4">
+													<a href="/direccion/nuevo" class="button ripple-effect margin-top-30">Agregar Dirección</a>
+											</div>
+											<div class="col-xl-6">
+												<div class="submit-field">
+												<h5>Teléfono</h5>
+												{{ form.fono_empresa }}
+												</div>
+											</div>
+											<div class="col-xl-6">
+												<div class="submit-field">
+												<h5>Correo electrónico</h5>
+												{{ form.email }}
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Dashboard Box -->
+									<div class="col-xl-12">
+										<div class="dashboard-box">
+										<!-- Headline -->
+										<div class="headline">
+											<h3><i class="icon-material-outline-face"></i> Mi perfil Empresa</h3>
+										</div>
+											<div class="col-xl-4">
+												<div class="submit-field">
+													<h5>Documentos Relacionados</h5>
+													
+													<!-- Attachments -->
+													<div class="attachments-container margin-top-0 margin-bottom-0">
+														<div class="attachment-box ripple-effect">
+															<span>Certificado Actividades</span>
+															<i>PDF</i>
+															<button class="remove-attachment" data-tippy-placement="top" title="Remove"></button>
+														</div>
+														<div class="attachment-box ripple-effect">
+															<span>Certificado Empresa SII</span>
+															<i>PDF</i>
+															<button class="remove-attachment" data-tippy-placement="top" title="Remove"></button>
+														</div>
+													</div>
+													<div class="clearfix"></div>
+													
+													<!-- Upload Button -->
+													<div class="uploadButton margin-top-0">
+														<input class="uploadButton-input" type="file" accept="image/*, application/pdf" id="upload" multiple/>
+														<label class="uploadButton-button ripple-effect" for="upload">Subir archivo</label>
+														<span class="uploadButton-file-name">Máximo: 10 MB</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Button -->
+									<div class="col-xl-12">
+										<button type="submit" class="button ripple-effect big margin-top-30" value="Submit">Guardar Perfil</button>
+									</div>
+							</form>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+					<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					<strong>Bolsa de trabajo</strong>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+{% endblock %}

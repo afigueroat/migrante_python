@@ -1,0 +1,279 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+{% load staticfiles %}
+
+</header>
+<div class="clearfix"></div>
+
+<div class="intro-banner" data-background-image="{% static "images/bg1.jpg" %}">
+	<div class="container">
+		
+		<!-- Intro Headline -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="banner-headline">
+					<h3>
+						<strong>Bienvenid@s a la Bolsa de trabajo migrante.</strong>
+						<br>
+						<span>inclusiva en materia laboral y el ambiente está dado por usuarios de las empresas, corporaciones, ONGs, instituciones, centros e  inmigrantes.</span>
+					</h3>
+				</div>
+			</div>
+		</div>
+		
+		<!-- barra buscar -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="intro-banner-search-form margin-top-95">
+
+					<!-- buscar -->
+					<div class="intro-search-field with-autocomplete">
+						<label for="autocomplete-input" class="field-title ripple-effect">Comuna?</label>
+						<div class="input-with-icon">
+							<input id="autocomplete-input" type="text" placeholder="Nombre de la comuna">
+							<i class="icon-material-outline-location-on"></i>
+						</div>
+					</div>
+
+					<!-- buscar -->
+					<div class="intro-search-field">
+						<label for ="intro-keywords" class="field-title ripple-effect">¿Qué trabajo busca?</label>
+						<input id="intro-keywords" type="text" placeholder="Tíulo de trabajo">
+					</div>
+
+					<div class="intro-search-button">
+						<button class="button ripple-effect" onclick="window.location.href='jobs-list-layout-full-page-map.html'">Buscar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="intro-stats margin-top-45 hide-under-992px">
+					<li>
+						<strong class="counter">1,586</strong>
+						<span>Trabajos Publicados en la Región Metropolitana </span>
+					</li>
+
+					<li>
+						<strong class="counter">1,232</strong>
+						<span>Profesionales</span>
+					</li>
+					<li>
+						<strong class="counter">2,232</strong>
+						<span>Oficios</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Ofertas laborales -->
+<div class="section gray margin-top-45 padding-top-65 padding-bottom-75">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-12">
+				
+
+				<div class="section-headline margin-top-0 margin-bottom-35">
+					<h3>Ofertas de empleo</h3>
+				</div>
+				
+				<!-- Contenedor aviso de trabajo -->
+				<div class="listings-container compact-list-layout margin-top-35">
+
+					<!-- Aviso -->
+					<a href="detalleAviso1n1.html" class="job-listing with-apply-button">
+
+
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src=" {% static "images/empleador-01.png" %}" alt="">
+							</div>
+
+							<!-- Detalle  -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Barbero integral para peluquerías</h3>
+
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business"></i> El Barbero </li>
+										<li><i class="icon-material-outline-location-on"></i> Santiago , Región Metropolitana</li>
+										<li><i class="icon-material-outline-business-center"></i> Jornada Completa</li>
+										<li><i class="icon-material-outline-access-time"></i> hace 2 días</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Btn Postular -->
+							<span class="list-apply-button ripple-effect">Detalle</span>
+						</div>
+					</a>
+
+
+					<!-- Aviso -->
+					<a href="detalleAviso1n1.html" class="job-listing with-apply-button">
+
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src= "{% static "images/company-logo-05.png" %}" alt="">
+							</div>
+
+							<!-- Detalle -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Asistente Ejecutiva</h3>
+
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business"></i> Entel</li>
+										<li><i class="icon-material-outline-location-on"></i>San Bernardo, Región Metropolitana</li>
+										<li><i class="icon-material-outline-business-center"></i> Jornada Completa</li>
+										<li><i class="icon-material-outline-access-time"></i>hace 3 días</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- btn postular -->
+							<span class="list-apply-button ripple-effect">Detalle</span>
+						</div>
+					</a>
+					<!-- Aviso / fin-->
+
+				<!-- Aviso -->
+				<a href="detalleAviso1n1.html" class="job-listing with-apply-button">
+
+					<div class="job-listing-details">
+
+						<!-- Logo -->
+						<div class="job-listing-company-logo">
+							<img src="{% static "images/company-logo-05.png" %}" alt="">
+						</div>
+
+						<!-- Detalle -->
+						<div class="job-listing-description">
+							<h3 class="job-listing-title">Jornal</h3>
+
+							<!-- Aviso -->
+							<div class="job-listing-footer">
+								<ul>
+									<li><i class="icon-material-outline-business"></i> Constructora Orbis S.A.</li>
+									<li><i class="icon-material-outline-location-on"></i>La Florida, Región Metropolitana</li>
+									<li><i class="icon-material-outline-business-center"></i> Jornada Completa</li>
+									<li><i class="icon-material-outline-access-time"></i>hace 3 días</li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- btn postular -->
+						<span class="list-apply-button ripple-effect">Detalle</span>
+					</div>
+				</a>
+					<!-- Aviso / fin-->
+
+					<!-- Aviso -->
+					<a href="detalleAviso1n1.html" class="job-listing with-apply-button">
+
+
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="{% static "images/empleador-01.png" %}" alt="">
+							</div>
+
+							<!-- Detalle  -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">Barbero integral para peluquerías</h3>
+
+								<!-- Lista de ofertas -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business"></i> El Barbero <div class="verified-badge" title="Empleador recomendado" data-tippy-placement="top"></div></li>
+										<li><i class="icon-material-outline-location-on"></i> Santiago de Chile, Región Metropolitana</li>
+										<li><i class="icon-material-outline-business-center"></i> Jornada Completa</li>
+										<li><i class="icon-material-outline-business-center"></i> Oficio</li>
+										<li><i class="icon-material-outline-access-time"></i> hace 2 días</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Btn Postular -->
+							<span class="list-apply-button ripple-effect">Detalle</span>
+						</div>
+					</a>
+					<!-- Aviso / fin-->
+			</div>
+			<!-- Contenedor aviso de trabajo / fin -->
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Ofertas laborales / Fin -->
+
+<div class="section margin-top-65 margin-bottom-65">
+	<div class="container">
+		<div class="row">
+
+
+			<div class="col-xl-12">
+				<div class="section-headline centered margin-top-0 margin-bottom-45">
+					<h3>Ofertas de Empleo por Comuna</h3>
+				</div>
+			</div>
+
+			<div class="col-xl-3 col-md-3">
+				<!-- Photo Box -->
+				<a href="#" class="photo-box" data-background-image= "{% static "images/comuna.png" %}">
+					<div class="photo-box-content">
+						<h3>La florida</h3>
+						<span>376 Trabajos</span>
+					</div>
+				</a>
+			</div>
+			
+			<div class="col-xl-3 col-md-3">
+				<!-- Photo Box -->
+				<a href="#" class="photo-box" data-background-image= "{% static "images/comuna.png" %}">
+					<div class="photo-box-content">
+						<h3>Recoleta</h3>
+						<span>645 Trabajos</span>
+					</div>
+				</a>
+			</div>
+			
+			<div class="col-xl-3 col-md-3">
+				<!-- Photo Box -->
+				<a href="#" class="photo-box" data-background-image= "{% static "images/comuna.png" %}">
+					<div class="photo-box-content">
+						<h3>Santiago</h3>
+						<span>832 Trabajos</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-xl-3 col-md-3">
+				<!-- Photo Box -->
+				<a href="#" class="photo-box" data-background-image="{% static "images/comuna.png" %}">
+					<div class="photo-box-content">
+						<h3>Maipu</h3>
+						<span>513 Trabajos</span>
+					</div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- Features Cities / End -->
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'registrar_base.html' %}
+
+{% block content %}
+    <form class="site-form"  method="post">
+        {% csrf_token %}	
+           <div class="account-type">
+					<div>
+						<input type="radio" name="user_type" value="postulante" id="postulante-radio" class="account-type-radio" checked/>
+						<label for="postulante-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i>Postulante</label>
+					</div>
+					<div>
+						<input type="radio" name="user_type" value="empresa" id="employer-radio" class="account-type-radio"/>
+						<label for="employer-radio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i>Empleador</label>
+					</div>
+				</div>
+            <div class="input-with-icon-left">
+    			<i class="icon-material-outline-account-circle"></i>
+    			<input type="text" class="input-text with-border" name="username" id="username" placeholder="Username" required/>
+    		</div>
+            <div class="input-with-icon-left">
+    			<i class="icon-material-outline-email"></i>
+    			<input type="text" class="input-text with-border" name="email" id="email" placeholder="Email" required/>
+    		</div>
+    		<div class="input-with-icon-left">
+    			<i class="icon-material-outline-lock"></i>
+    			<input type="password" class="input-text with-border" name="password" id="password" placeholder="Contraseña" required/>
+    		</div>
+        <button class="button full-width button-sliding-icon ripple-effect" type="submit">Registrarse</a><i class="icon-material-outline-arrow-right-alt"></i></button>
+    </form>
+</html>
+
+{% endblock %}

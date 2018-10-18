@@ -1,0 +1,100 @@
+{% extends 'anuncios/base_anuncio.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Administración de Trabajos</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Administracion de Trabajos</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-business-center"></i> Mis Trabajos</h3>
+						</div>
+
+						<div class="content">
+							
+							{% if object_list %}
+							{% for anuncio in object_list %}
+							<ul class="dashboard-box-list">
+								<li>
+									<!-- Job Listing -->
+									<div class="job-listing">
+
+										<!-- Job Listing Details -->
+										<div class="job-listing-details">
+
+											<!-- Details -->
+											<div class="job-listing-description">
+												<h3 class="job-listing-title"><a href="#">{{ anuncio.titulo_anuncio }}</a> <span class="dashboard-status-button green">Pending Approval</span></h3>
+
+												<!-- Job Listing Footer -->
+												<div class="job-listing-footer">
+													<ul>
+														<li><i class="icon-material-outline-date-range"></i> {{ anuncio.fecha_anuncio }}</li>
+														<li><i class="icon-material-outline-date-range"></i> {{ anuncio.fecha_cierre_anuncio }}</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- Buttons -->
+									<div class="buttons-to-right always-visible">
+										<a href="dashboard-manage-candidates.html" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Candidates <span class="button-info">0</span></a>
+										<a href="{% url 'anuncios:anuncio_editar' anuncio.id_anuncio %}" class="button gray ripple-effect ico" title="Editar" data-tippy-placement="top"><i class="icon-feather-edit"></i></a>
+										<a href="{% url 'anuncios:anuncio_eliminar' anuncio.id_anuncio %}" class="button gray ripple-effect ico" title="Eliminar" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+									</div>
+								</li>
+							</ul>
+							{% endfor %}
+							
+							{% else %}
+							<h1> No hay Anuncios aún</h1>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					2018 <strong>Bolsa de empleo</strong>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+
+{% endblock %}

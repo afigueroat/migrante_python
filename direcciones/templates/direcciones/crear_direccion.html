@@ -1,0 +1,96 @@
+{% extends 'direcciones/direccion_base.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Crear Dirección</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Crear Dirección</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-feather-folder-plus"></i>Crear Dirección</h3>
+						</div>
+                        <form method="post">
+                            {% csrf_token %}
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Direccion</h5>
+										{{ form.desc_direccion }}
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Número</h5>
+										{{ form.numero }}
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Depto/Block/Villa</h5>
+										{{ form.desc_block_depto }}
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Comuna</h5>
+										<div class="input-with-icon">
+												{{ form.id_comuna }}
+											<i class="icon-material-outline-location-on"></i>
+										</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="col-xl-12">
+					<button type="submit" class="button ripple-effect big margin-top-30" value="Submit">Guardar Direccion</button>
+			     </div>
+                </form>
+	        </div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					2018 <strong>Bolsa de empleo</strong>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+	
+{% endblock %}

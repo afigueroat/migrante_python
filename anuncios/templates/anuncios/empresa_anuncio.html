@@ -1,0 +1,108 @@
+{% extends 'anuncios/base_anuncio.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Anuncio de Empleo</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Anuncio de Empleo</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-feather-folder-plus"></i> Anuncio de Empleo</h3>
+						</div>
+                        <form method="post">
+                            {% csrf_token %}
+						<div class="content with-padding padding-bottom-10">
+							<div class="row">
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Titulo del empleo</h5>
+										{{ form.titulo_anuncio }}
+									</div>
+								</div>
+								<div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Titulo Alternativo</h5>
+								    	{{ form.alter_titulo_anuncio }}
+									</div>
+								</div>
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>Detalle Anuncio</h5>
+										{{ form.detalle_anuncio }}
+										<div class="uploadButton margin-top-30">
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>Detalle Alternativo</h5>
+										{{ form.alter_detalle_anuncio }}
+										<div class="uploadButton margin-top-30">
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-6" >
+									<div class="submit-field">
+										<h5>Fecha de Cierre</h5>
+										{{ form.fecha_cierre_anuncio }}
+									</div>
+								</div>
+							    <div class="col-xl-6">
+									<div class="submit-field">
+										<h5>Idioma Alternativo</h5>
+										{{ form.id_idioma_alter }}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <div class="col-xl-12">
+					<button type="submit" class="button ripple-effect big margin-top-30" value="Submit">Guardar aviso</button>
+			     </div>
+                </form>
+	        </div>
+			<!-- Row / End -->
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					2018 <strong>Bolsa de empleo</strong>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+	
+{% endblock %}

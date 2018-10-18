@@ -1,0 +1,46 @@
+{% extends 'base_templateall.html' %}
+
+{% block content %}
+{% load staticfiles %}
+
+			<div class="popup-tab-content" id="registro">
+
+				<div class="welcome-text">
+					<h3>Creemos tu cuenta!</h3>
+				</div>
+
+				<div class="account-type">
+					<div>
+						<input type="radio" name="account-type-radio" id="postulante-radio" class="account-type-radio" checked/>
+						<label for="postulante-radio" class="ripple-effect-dark"><i class="icon-material-outline-account-circle"></i> Postulante</label>
+					</div>
+
+					<div>
+						<input type="radio" name="account-type-radio" id="empleador-radio" class="account-type-radio"/>
+						<label for="empleadorradio" class="ripple-effect-dark"><i class="icon-material-outline-business-center"></i> Empleador</label>
+					</div>
+					</div>
+
+				<form method="post" id="registro-cuenta-form">
+					<div class="input-with-icon-left">
+						<i class="icon-material-baseline-mail-outline"></i>
+						<input type="text" class="input-text with-border" name="emailaddress-register" id="emailaddress-register" placeholder="Correo electrónico" required/>
+					</div>
+
+					<div class="input-with-icon-left" title="Debe tener al menos 8 caracteres" data-tippy-placement="bottom">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="password-register" id="password-register" placeholder="Contraseña" required/>
+					</div>
+
+					<div class="input-with-icon-left">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="password-repeat-register" id="password-repeat-register" placeholder="Repetir contraseña" required/>
+					</div>
+				</form>
+
+				<button class="margin-top-10 button full-width button-sliding-icon ripple-effect" type="submit" form="register-account-form">Registrar <i class="icon-material-outline-arrow-right-alt"></i></button>
+
+
+			</div>
+			
+{% endblock %}
