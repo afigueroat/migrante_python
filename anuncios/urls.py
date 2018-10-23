@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import crear_anuncio, AnuncioList, AnuncioDelete, anuncio_eliminar, AnuncioEdit, AnuncioPostulanteList, DetailAnuncio, postular
+from .views import crear_anuncio, AnuncioList, AnuncioDelete, AnuncioEdit, AnuncioPostulanteList, DetailAnuncio, postular
 
 
 namespace = 'anuncios'
