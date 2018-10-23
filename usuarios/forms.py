@@ -1,5 +1,6 @@
 from django import forms
 from . import models
+from django.contrib.auth.models import User
 
 SEXO= (
 ('Masculino', '1'),
@@ -84,3 +85,4 @@ class RegisterPostulanteForm(forms.ModelForm):
             'password',
             'email',
             ]
+            

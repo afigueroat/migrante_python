@@ -1,0 +1,81 @@
+{% extends 'usuarios/empresa_base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Configuración</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Configuración</li>
+					</ul>
+				</nav>
+			</div>
+	
+	<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div id="test1" class="dashboard-box">
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-lock"></i> Configuración Contraseña</h3>
+						</div>
+
+						<div class="content with-padding">
+							<div class="row">
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Contraseña actual</h5>
+										<input type="password" name="password_actual" class="with-border">
+									</div>
+								</div>
+
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Nueva contraseña</h5>
+										<input type="password" name="password_1" class="with-border">
+									</div>
+								</div>
+
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>Repetir contraseña</h5>
+										<input type="password" name="password_2" class="with-border">
+									</div>
+								</div>
+
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Button -->
+				<div class="col-xl-12">
+					<button type="submit" class="button ripple-effect big margin-top-30">Guardar configuración</button>
+				</div>			
+				</form>
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					<strong>Bolsa de trabajo</strong>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+{% endblock %}

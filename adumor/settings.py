@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'adumor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'migrantes',
+        'NAME': 'migrantes3',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
@@ -136,5 +136,5 @@ STATICFILES_DIRS = (
 )
 
 
-LOGIN_REDIRECT_URL = 'homepage'
+LOGIN_REDIRECT_URL = '/usuarios/login'
 LOGOUT_REDIRECT_URL = '/'

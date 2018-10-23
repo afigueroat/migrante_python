@@ -2,19 +2,13 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 from .forms import EmpresaUpdateForm, PostulanteUpdateForm, LoginForm, RegisterForm, RegisterEmpresaForm, RegisterPostulanteForm
 from usuarios.models import Nacionalidad
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, TemplateView
 from .models import Usuarios, Empresa, Postulante
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import Group, User
 
-
-def panel_usuario(request):
-    return render(request,'usuarios/postulante-ficha-personal.html')
-
-def panel_empresa(request):
-    return render(request,'usuarios/empresa-ficha-personal.html')
 
 class FichaEmpresaUpdate(UpdateView):
     model = Empresa
@@ -26,7 +20,7 @@ class FichaPostulanteUpdate(UpdateView):
     model = Postulante
     form_class = PostulanteUpdateForm
     template_name = 'usuarios/postulante-ficha-personal.html'
-    success_url = reverse_lazy('anuncios:empresa_lista_anuncio')
+    success_url = reverse_lazy('anuncios:postulante_lista_anuncio')
     
 def login_view(request):
     if request.method == 'POST':
@@ -78,4 +72,24 @@ def register_view(request):
                 return HttpResponseRedirect("/usuarios/editar_postulante/%s" % int(postulante.pk))   
     form = RegisterForm()
     return render(request, 'usuarios/register_user.html', {'register_form' : RegisterForm})
+    
+class PanelPostulante(TemplateView):
+    model = Postulante
+    template_name = 'usuarios/postulante-panel.html'
+    success_url = reverse_lazy('usuarios:panel_postulante')
+    
+class PanelEmpresa(TemplateView):
+    model = Empresa
+    template_name = 'usuarios/empresa-panel.html'
+    success_url = reverse_lazy('usuarios:panel_empresa')
+    
+class ConfigEmpresa(TemplateView):
+    model = Empresa
+    template_name = 'usuarios/empresa-configuracion.html'
+    success_url = reverse_lazy('usuarios:configuracion_empresa')
+    
+class ConfigPostulante(TemplateView):
+    model = Postulante
+    template_name = 'usuarios/postulante-configuracion.html'
+    success_url = reverse_lazy('usuarios:configuracion_postulante')
     

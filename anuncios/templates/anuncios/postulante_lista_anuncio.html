@@ -1,0 +1,88 @@
+{% extends 'anuncios/base_anuncio_postulante.html' %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+	<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>Administración de Trabajos</h3>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Inicio</a></li>
+						<li><a href="#">Panel</a></li>
+						<li>Administracion de Trabajos</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Dashboard Box -->
+				<div class="col-xl-12">
+					<div class="dashboard-box margin-top-0">
+
+						<!-- Headline -->
+						<div class="headline">
+							<h3><i class="icon-material-outline-business-center"></i> Mis Trabajos</h3>
+						</div>
+
+						<div class="content">
+					<!-- Jobs Container -->
+				<div class="listings-container compact-list-layout margin-top-35">
+							{% if object_list %}
+							{% for anuncio in object_list %}
+							
+							<!-- Job Listing -->
+					<a href="{% url 'anuncios:display_anuncio' anuncio.id_anuncio %}" class="job-listing with-apply-button">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="images/company-logo-01.png" alt="">
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">{{ anuncio.titulo_anuncio }}</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-business"></i> {{ anuncio.user_ptr_id }} <div class="verified-badge" title="Verified Employer" data-tippy-placement="top"></div></li>
+										<li><i class="icon-material-outline-location-on"></i> Santiago</li>
+										<li><i class="icon-material-outline-business-center"></i>{{ anuncio.tipo_trabajo }}</li>
+										<li><i class="icon-material-outline-access-time"></i> 3 días atras</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Apply Button -->
+							<span class="list-apply-button ripple-effect">Postular</span>
+						</div>
+					</a>	
+							{% endfor %}
+							
+							{% else %}
+							<h1> No hay Anuncios aún</h1>
+							{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- Row / End -->
+
+
+{% endblock %}

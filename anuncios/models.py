@@ -2,7 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from adumor.models import Idioma
-from usuarios.models import Usuarios
+from usuarios.models import Usuarios, Postulante
+from direcciones.models import Direccion
 
 # Create your models here.
 
@@ -16,8 +17,11 @@ class Anuncio(models.Model):
     fecha_anuncio = models.DateTimeField()
     fecha_cierre_anuncio = models.DateTimeField(blank=True, null=True)
     estado_anuncio = models.IntegerField()
+    tipo_trabajo = models.CharField(max_length=45, blank=True, null=True)
+    salario = models.IntegerField(blank=True, null=True)
     user_ptr_id = models.ForeignKey('usuarios.Empresa', models.DO_NOTHING, db_column='user_ptr_id')
     id_idioma_alter = models.ForeignKey('adumor.Idioma', models.DO_NOTHING, db_column='id_idioma_alter', blank=True, null=True)
+    id_direccion = models.ForeignKey(Direccion, models.DO_NOTHING, db_column='id_direccion', blank=True, null=True)
 
     class Meta:
         managed = False
@@ -37,7 +41,7 @@ class EstadoPostulacion(models.Model):
 class Postulacion(models.Model):
     id_postulacion = models.AutoField(primary_key=True)
     fecha_postulacion = models.DateTimeField()
-    id_usuario_postulante = models.ForeignKey('usuarios.Usuarios', models.DO_NOTHING, db_column='id_usuario_postulante')
+    id_usuario_postulante = models.ForeignKey('usuarios.Postulante', models.DO_NOTHING, db_column='id_usuario_postulante')
     id_anuncio = models.ForeignKey(Anuncio, models.DO_NOTHING, db_column='id_anuncio')
     id_estado_postulacion = models.ForeignKey(EstadoPostulacion, models.DO_NOTHING, db_column='id_estado_postulacion')
     fecha_cambio_postulacion = models.DateTimeField()

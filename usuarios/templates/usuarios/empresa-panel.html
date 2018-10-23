@@ -1,0 +1,59 @@
+{% extends 'usuarios/empresa_base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+<!-- Dashboard Content
+	================================================== -->
+	<div class="dashboard-content-container" data-simplebar>
+		<div class="dashboard-content-inner" >
+			
+			<!-- Dashboard Headline -->
+			<div class="dashboard-headline">
+				<h3>{{ get_razon_social }}</h3>
+				<span>Estamos felices de verte nuevamente!</span>
+
+				<!-- Breadcrumbs -->
+				<nav id="breadcrumbs" class="dark">
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li>Panel</li>
+					</ul>
+				</nav>
+			</div>
+	
+			<!-- Fun Facts Container -->
+			<div class="fun-facts-container">
+				<div class="fun-fact" data-fun-fact-color="#b81b7f">
+					<div class="fun-fact-text">
+						<span>Anuncios Creados hasta el momento</span>
+						<h4>{{ get_cantidad_anuncios }}</h4>
+					</div>
+					<div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+				</div>
+				<div class="fun-fact" data-fun-fact-color="#efa80f">
+					<div class="fun-fact-text">
+						<span>Reviews</span>
+						<h4>28</h4>
+					</div>
+					<div class="fun-fact-icon"><i class="icon-material-outline-rate-review"></i></div>
+				</div>
+
+			</div>
+			
+
+
+			<!-- Footer -->
+			<div class="dashboard-footer-spacer"></div>
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					<strong>Bolsa de trabajo</strong>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Dashboard Content / End -->
+{% endblock %}

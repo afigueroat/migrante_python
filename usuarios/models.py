@@ -157,3 +157,4 @@ class Postulante(User):
     id_nacion = models.ForeignKey(Nacionalidad, models.DO_NOTHING, db_column='id_nacion', blank=True, null=True)
     foto_path_usuario = models.CharField(max_length=45, blank=True, null=True)
     
+    

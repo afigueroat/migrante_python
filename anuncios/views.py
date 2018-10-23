@@ -1,13 +1,31 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.http import HttpResponseRedirect
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, DetailView, TemplateView
 from django.core.urlresolvers import reverse_lazy
-from .forms import CrearAnuncio
-from .models import Anuncio
-from usuarios.models import Empresa
+from .forms import CrearAnuncio, PostularForm
+from .models import Anuncio, EstadoPostulacion
+from usuarios.models import Empresa, Postulante
+from direcciones.models import Direccion
 
 # Create your views here.
+
+def postular(request, pk):
+    if request.method == 'POST':
+        form = PostularForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.fecha_postulacion = timezone.now()
+            instance.id_usuario_postulante = Postulante.objects.get(pk=int(request.user.pk))
+            instance.id_anuncio = Anuncio.objects.get(pk=pk)
+            instance.id_estado_postulacion = EstadoPostulacion.objects.get(pk=1)
+            instance.fecha_cambio_postulacion = timezone.now()
+            instance.save()
+            return redirect('anuncios:postulante_lista_anuncio') 
+    else:
+        form = PostularForm()
+    return render(request, 'anuncios/postulante_lista_anuncio.html', {'form': form})
+        
 
 def crear_anuncio(request):
     if request.method == 'POST':
@@ -30,6 +48,10 @@ class AnuncioList(ListView):
     model = Anuncio
     template_name = 'anuncios/empresa_lista_anuncio.html'
     
+class AnuncioPostulanteList(ListView):
+    model = Anuncio
+    template_name = 'anuncios/postulante_lista_anuncio.html'
+    
 class AnuncioEdit(UpdateView):
     model = Anuncio
     form_class = CrearAnuncio
@@ -38,13 +60,11 @@ class AnuncioEdit(UpdateView):
     
 class AnuncioDelete(DeleteView):
     model = Anuncio
-    template_name = 'anuncios/anuncio_eliminar.html'
+    template_name = '/anuncios/anuncio_eliminar.html'
     success_url = reverse_lazy('anuncios:anuncio_eliminar')
     
-#def eliminar_anuncio(request, id_anuncio):
- #   anuncio = Anuncio.object.get(id=id_anuncio)
-  #  if request.method == 'POST':
-   #     anuncio.delete()
-    #    return redirect
-        
-        
+class DetailAnuncio(DetailView):
+    model = Anuncio
+    template_name = 'anuncios/pagina_anuncio.html'
+    success_url = reverse_lazy('anuncios:pagina_anuncio')
+    
